@@ -3,7 +3,7 @@ import './App.css';
 
 import Header from './components/Header'
 import Home from './pages/Home'
-import About from './pages/About'
+import Add from './pages/Add'
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" exact element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/add" element={<Add />} />
       </Routes>
     </div>
   );

@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom'
 
 const BtnReadMore = (props) => {
 	return (
-		<Link to={`/single/${props.id}`}>
-			<button>Read More</button>
-		</Link>
+		<>
+			<Link to={`/single/${props.id}`}>
+				<button>Read More</button>
+			</Link>
+		</>
 	)
 }
 

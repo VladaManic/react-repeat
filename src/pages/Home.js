@@ -1,11 +1,10 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import ItemsContext from '../context/items-context'
 
 import Items from '../components/Items'
 
 const Home = () => {
 	const itemsCtx = useContext(ItemsContext)
-  console.log(itemsCtx.items);
 
 	useEffect(() => {
 		itemsCtx.getItems()

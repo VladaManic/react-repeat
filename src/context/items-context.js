@@ -6,6 +6,7 @@ const ItemsContext = createContext({
 	totalItems: 0,
 	getItems: () => {},
 	addItem: (item) => {},
+	deleteItem: (id) => {},
 });
 
 export function ItemsContextProvider(props){
@@ -39,11 +40,22 @@ export function ItemsContextProvider(props){
 		});
 	}
 
+	const deleteItemHandler = (id) => {
+		axios({
+			method: 'DELETE',
+      url: `https://react-repeat-fa651-default-rtdb.firebaseio.com/items/${id}.json`
+		})
+		setCurrentItems((prevCurrentItems) => {
+			return prevCurrentItems.filter(item => item.id !== id);
+		});
+	}
+
 	const context = {
 		items: currentItems,
 		totalItems: currentItems.length,
 		getItems: getItemsHandler,
 		addItem: addItemHandler,
+		deleteItem: deleteItemHandler,
 	};
 
 	return <ItemsContext.Provider value={context}>
